@@ -1,3 +1,31 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;   // prevent sideways scroll
+  overflow-y: auto;     // allow vertical scroll
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+}
+
+.neon-text {
+  color: #a29bfe;
+  text-shadow: 0 0 5px #a29bfe, 0 0 10px #6c5ce7;
+}
+
 ion-content {
   font-family: 'Outfit', sans-serif;
 
