@@ -1,116 +1,76 @@
-html, body {
+body {
   margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;   // prevent sideways scroll
-  overflow-y: auto;     // allow vertical scroll
+  font-family: 'SF Pro Display', 'Inter', sans-serif;
+  background-image: url('assets/bg-gradient.jpg'); /* ✅ no leading slash */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Frosted header and footer */
+.frosted-bar {
+  background: rgba(255, 255, 255, 0.08); /* ✅ no pink */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 2rem;
+  text-align: center;
+  color: #e6f0ff;
+  box-shadow: 0 0 10px rgba(0, 120, 255, 0.25);
+  position: relative;
+  z-index: 10;
 }
 
+/* Frosted title */
+.glass-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #e6f0ff;
+  text-shadow: 0 0 10px rgba(0, 120, 255, 0.6);
+}
+
+/* Subtitle */
+.glass-subtitle {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  color: #e0ecff;
+  text-shadow: 0 0 6px rgba(0, 120, 255, 0.3);
+}
+
+/* CTA button */
+.cta-button {
+  display: block;
+  margin: 2rem auto;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 120, 255, 0.3);
+  cursor: pointer;
+}
+
+/* Frosted content panel */
 .glass-panel {
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
+  border-radius: 20px;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  color: #e6f0ff;
+  box-shadow: 0 0 20px rgba(0, 120, 255, 0.25);
 }
 
-.neon-text {
-  color: #a29bfe;
-  text-shadow: 0 0 5px #a29bfe, 0 0 10px #6c5ce7;
-}
-
-ion-content {
-  font-family: 'Outfit', sans-serif;
-
-  /* ULTRA dark navy / almost black background */
-  background: #010518; /* nearly black-blue */
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 3rem;
-}
-
-/* ===== Hero Box (gradient with visible blue) ===== */
-.hero-glass {
-  background: linear-gradient(
-    135deg,
-    rgba(106, 90, 249, 0.85),   /* purple-blue base */
-    rgba(110, 198, 255, 0.75)   /* visible blue layer */
-  );
-  border-radius: 25px;
-  border: 1px solid rgba(140, 170, 255, 0.6);
-  box-shadow: 0 10px 50px rgba(120, 160, 255, 0.4);
-  padding: 6rem 2rem;
-  margin: 2rem 1rem;
-  text-align: center;
-  color: #fff;
-}
-
-.hero-glass h1 { font-size: 5rem; margin-bottom: 1rem; }
-.hero-glass h2 { font-size: 2.5rem; margin-bottom: 2rem; }
-
-/* ===== Middle Sections (About, Features, Tech Bubbles) ===== */
-.about-glass,
-.bubble-card,
-.cta-section-middle {
-  background: linear-gradient(
-    135deg,
-    rgba(120, 160, 255, 0.28),   /* soft blue tint */
-    rgba(255, 255, 255, 0.22)    /* frosted white */
-  );
-  backdrop-filter: blur(30px) saturate(180%);
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
-  border-radius: 25px;
-
-  border: 2px solid rgba(140, 170, 255, 0.55);
-  box-shadow: 0 25px 80px rgba(120, 160, 255, 0.35);
-
-  padding: 2rem;
-  text-align: center;
-  color: #fff;
-  margin: 2rem 1rem;
-}
-
-/* About Section */
-.about-glass h2 { font-size: 3rem; margin-bottom: 1rem; }
-.about-glass p { font-size: 1.3rem; line-height: 1.6; }
-
-/* Bubble Cards */
-.bubble-card {
-  width: 250px;
-  height: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.bubble-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 30px 120px rgba(120, 160, 255, 0.55); /* stronger blue glow */
-}
-
-/* Floating animation */
-@keyframes float-bubble {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.bubble-card.float {
-  animation: float-bubble 4s ease-in-out infinite;
-}
-
-/* Features, Steps, Tech sections */
-.features, .steps, .tech-cards {
+/* Feature cards */
+.feature-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -118,92 +78,51 @@ ion-content {
   margin-top: 2rem;
 }
 
-/* Tech icons */
-.tech-icon {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 1rem;
-  color: #fff;
-}
-
-/* ===== Bottom CTA box (gradient with visible blue) ===== */
-.cta-section {
-  background: linear-gradient(
-    135deg,
-    rgba(106, 90, 249, 0.85),
-    rgba(110, 198, 255, 0.75)
-  );
-  border-radius: 25px;
-  border: 1px solid rgba(140, 170, 255, 0.6);
-  box-shadow: 0 10px 50px rgba(120, 160, 255, 0.4);
-  margin: 2rem 1rem;
-  padding: 5rem 2rem;
-  text-align: center;
-  color: #fff;
-}
-
-/* ===== Header & Footer Glass (blue frost, pink glow) ===== */
-ion-header,
-ion-footer {
-  background: linear-gradient(
-    135deg,
-    rgba(120, 160, 255, 0.25),   /* soft blue tint */
-    rgba(255, 255, 255, 0.18)    /* frosted white */
-  );
-  backdrop-filter: blur(25px) saturate(180%);
-  -webkit-backdrop-filter: blur(25px) saturate(180%);
-  border: 1px solid rgba(140, 170, 255, 0.5);
-  box-shadow: 0 15px 50px rgba(255, 120, 180, 0.4); /* pink glow */
+.feature-card {
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
-  color: #fff;
-  text-align: center;
-}
-
-/* ===== Glass Buttons (translucent, pink text + glow) ===== */
-.glass-btn,
-ion-button.cta,
-ion-button {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 30px;
-  color: #ff7eb9; /* pink text */
-  font-size: 16px;
-  padding: 12px 28px;
-  transition: all 0.3s ease;
-}
-
-.glass-btn:hover,
-ion-button:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 40px rgba(255, 120, 180, 0.55); /* pink glow */
-}
-
-/* ===== Apple Glass Box (utility class) ===== */
-.glass-box {
-  background: rgba(255,255,255,0.55);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(150,180,255,0.7);
-  border-radius: 22px;
-  box-shadow: 0 20px 60px rgba(120,160,255,0.35);
-  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 1.5rem;
+  flex: 1 1 250px;
+  color: #f0f6ff;
+  box-shadow: 0 0 15px rgba(0, 120, 255, 0.2);
+  transition: transform 0.3s ease;
 }
 
-/* ===== Centered Section Headings ===== */
-.how-it-works h2,
-.tech-elements h2 {
-  text-align: center;
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  color: #fff;
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(0, 120, 255, 0.4);
 }
 
-.how-it-works,
-.tech-elements {
-  text-align: center;
+/* Floating bubbles animation */
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: rise 20s infinite ease-in;
 }
+
+.bubble:nth-child(1) { left: 20%; animation-duration: 18s; }
+.bubble:nth-child(2) { left: 40%; animation-duration: 22s; }
+.bubble:nth-child(3) { left: 60%; animation-duration: 25s; }
+.bubble:nth-child(4) { left: 80%; animation-duration: 20s; }
+.bubble:nth-child(5) { left: 30%; animation-duration: 28s; }
+
+@keyframes rise {
+  0% { transform: translateY(0) scale(1); opacity: 0.4; }
+  50% { transform: translateY(-500px) scale(1.2); opacity: 0.6; }
+  100% { transform: translateY(-1000px) scale(1); opacity: 0; }
+}
+
+
+
 
 
 
