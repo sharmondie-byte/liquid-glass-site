@@ -1,7 +1,0 @@
-{
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist/liquid-glass-site",
-  "framework": "angular",
-  "installCommand": "npm install"
-}
-
